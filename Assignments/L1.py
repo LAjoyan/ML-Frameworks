@@ -17,11 +17,27 @@ Instructions:
 
 import numpy as np
 
-a = [1,2.3]
-vector1 = np.array(1,2.3)
-vector2 = np.array(4,8,12)
+a = [5, 6, 9]
+b = [7, 21, 2]
+vector1 = np.array([1, 2, 3])
+vector2 = np.array([-487389247923874, 8, 13])
 
-dot_prod = np.dot()
+dot_prod = np.dot(vector1, vector2)
+print("The dot product using two numpy arrays", dot_prod)
+print("The dot product using a python list + python list", np.dot(a, b))
+print("The dot product using a python list + numpy array", np.dot(a, vector1))
+
+
+l2_norm = np.linalg.norm(vector1)
+print("L2_normalisering for vector 1 is:", l2_norm)
+
+l2_norm_vector2 = np.linalg.norm(vector2)
+
+cos_sim_v1_v2 = np.dot(vector1, vector2)/ (l2_norm * l2_norm_vector2)
+cos_sim_v1_v2_ALTERNATIVE = dot_prod/ (l2_norm * l2_norm_vector2)
+
+print('The cosine similarity of vector1 and vector2 is :', cos_sim_v1_v2)
+print('The cosine similarity of vector1 and vector2 is :', cos_sim_v1_v2_ALTERNATIVE)
 
 
 
