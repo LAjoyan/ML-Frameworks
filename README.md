@@ -1,2 +1,2 @@
-# ML-Ramverk
-Learning ML Ramverk
+# ML-Frameworks
+Learning ML Frameworks
