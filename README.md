@@ -1,8 +1,6 @@
-# 📘 Lecture 4 – Scikit-Learn API (Del 1)
+# 📘 Lecture 4 – Scikit-Learn API (Part 1)
 
 In this lecture, I practiced working with machine learning using Scikit-Learn.
-
----
 
 ## ✅ What I Learned
 
@@ -13,8 +11,6 @@ In this lecture, I practiced working with machine learning using Scikit-Learn.
 - Training models with `fit()` and `predict()`
 - Comparing models using loops
 
----
-
 ## 📊 Models
 
 ### Classification
@@ -24,8 +20,6 @@ In this lecture, I practiced working with machine learning using Scikit-Learn.
 ### Regression
 - Linear Regression
 - Ridge
-
----
 
 ## 📈 Evaluation
 
@@ -40,10 +34,45 @@ In this lecture, I practiced working with machine learning using Scikit-Learn.
 - MAE
 - R²
 
----
-
 ## 🎯 Goal
 
 Learn the basic ML workflow:
 
 **Load → Explore → Train → Predict → Evaluate → Compare**
+
+-------------------------------------------------------------
+
+# 📘 Lecture 5 – Scikit-Learn API (Part 2)
+
+In this lecture, I practiced unsupervised learning using Scikit-Learn.
+## ✅ What I Learned
+
+- Understanding K-Means clustering  
+- Finding the optimal number of clusters using the Elbow method  
+- Visualizing clusters with matplotlib  
+- Applying PCA (Principal Component Analysis)  
+- Reducing dimensions from 4D to 2D and 3D  
+- Comparing K-Means clusters with true labels  
+
+## 📊 Models & Techniques
+
+### 🔹 Clustering
+- K-Means  
+- Elbow Method (WCSS / Inertia)  
+
+### 🔹 Dimensionality Reduction
+- PCA (2D visualization)  
+- PCA (3D visualization)  
+
+## 📈 Visualization
+
+- Pairplots for EDA  
+- Elbow curve plot  
+- 2D PCA scatter plots  
+- 3D PCA projection  
+
+## 🎯 Goal
+
+Learn the unsupervised ML workflow:
+
+**Load → Explore → Scale → Cluster → Reduce Dimensions → Visualize → Compare**
