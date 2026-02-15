@@ -1,3 +1,56 @@
+📘 Lecture 3 – Introduction to ML Frameworks
+
+In this lecture, I explored the basic mathematical and computational foundations behind modern machine learning frameworks, focusing on NumPy, PyTorch, and Scikit-Learn.
+
+✅ What I Learned
+
+- Creating and manipulating vectors and matrices using NumPy
+- Performing dot products and matrix multiplication
+- Computing cosine similarity
+- Understanding L2 normalization
+- Writing and testing simple mathematical functions
+- Using PyTorch in eager execution mode
+- Comparing eager vs compiled graph execution
+- Loading datasets with Scikit-Learn
+- Training a Logistic Regression model
+- Understanding convergence warnings and model performance
+
+🧠 Key Concepts
+
+- Linear algebra for machine learning
+- Vector similarity measures
+- Numerical computation with tensors
+- Framework execution modes
+- Supervised learning fundamentals
+- Model evaluation basics
+
+📊 Models
+
+Logistic Regression (Scikit-Learn)
+
+Used to perform basic classification on the Iris dataset.
+
+⚙️ Technical Topics
+
+- NumPy arrays and operations
+- PyTorch tensors and performance testing
+- Scikit-Learn dataset handling
+- Model training and evaluation
+
+🎯 Goal
+
+Build strong foundations in:
+
+Math → Arrays → Tensors → Models → Evaluation
+
+This lecture prepares the groundwork for advanced topics such as:
+
+- Classical Machine Learning
+- Unsupervised Learning
+- Deep Learning
+
+-------------------------------------------------------------
+
 # 📘 Lecture 4 – Scikit-Learn API (Part 1)
 
 In this lecture, I practiced working with machine learning using Scikit-Learn.
@@ -76,6 +129,8 @@ In this lecture, I practiced unsupervised learning using Scikit-Learn.
 Learn the unsupervised ML workflow:
 
 **Load → Explore → Scale → Cluster → Reduce Dimensions → Visualize → Compare**
+
+-------------------------------------------------------------
 
 📘 Lecture 6 – Introduction to Deep Learning
 
