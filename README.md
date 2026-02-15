@@ -76,3 +76,47 @@ In this lecture, I practiced unsupervised learning using Scikit-Learn.
 Learn the unsupervised ML workflow:
 
 **Load → Explore → Scale → Cluster → Reduce Dimensions → Visualize → Compare**
+
+📘 Lecture 6 – Introduction to Deep Learning
+
+In this lecture, I practiced building and training a simple neural network using PyTorch and the MNIST dataset.
+
+✅ What I Learned
+
+- Working with tensors in PyTorch
+- Loading and preprocessing the MNIST dataset
+- Creating a custom neural network
+- Using forward propagation
+- Training with backpropagation and optimizers
+- Using loss functions for classification
+- Running training loops with epochs
+- Evaluating model performance
+- Visualizing predictions and errors
+
+📊 Model
+
+Neural Network (Fully Connected)
+
+- Input: 28 × 28 images (flattened)
+- Hidden layers with ReLU activation
+- Output: 10 classes (digits 0–9)
+- Softmax classification
+
+📈 Evaluation
+
+Classification Metrics
+
+- Accuracy
+- Loss (training and validation)
+- Confusion Matrix
+
+Visual Analysis
+
+- Sample predictions (correct and wrong)
+- Training and validation loss curves
+
+🎯 Goal
+
+Learn the basic deep learning workflow:
+
+Load → Preprocess → Build → Train → Predict → Evaluate → Visualize
