@@ -175,3 +175,72 @@ Visual Analysis
 Learn the basic deep learning workflow:
 
 Load → Preprocess → Build → Train → Predict → Evaluate → Visualize
+
+-------------------------------------------------------------
+
+📘 Lecture 7 – Automatic Differentiation & Optimization
+
+In this lecture, I explored how modern deep learning frameworks compute gradients automatically and how different optimizers affect model training.
+
+I focused on understanding automatic differentiation in PyTorch and comparing optimization algorithms on a synthetic classification dataset.
+
+✅ What I Learned
+
+- Using PyTorch Autograd to compute derivatives
+- Understanding computational graphs
+- Comparing automatic vs analytical gradients
+- Creating synthetic datasets with Scikit-Learn
+- Preventing data leakage with proper preprocessing
+- Scaling data after train/test split
+- Building custom training loops
+- Training neural networks with different optimizers
+- Evaluating model performance
+
+🧠 Key Concepts
+
+- Automatic differentiation (Autograd)
+- Gradient computation
+- Backpropagation mechanics
+- Optimization algorithms
+- Data leakage in ML pipelines
+- Reproducible ML experiments
+
+📊 Models
+
+Neural Network (Binary Classifier)
+
+Used to classify synthetic data into two classes.
+
+- Input: Feature vectors
+- Hidden layers with activation functions
+- Output: Binary classification
+- Loss: Binary Cross Entropy
+
+⚙️ Technical Topics
+
+- PyTorch tensors with gradients
+- requires_grad and backward()
+- Optimizers (SGD, Adam, etc.)
+- Training and evaluation loops
+- Scikit-Learn dataset generation
+- StandardScaler usage
+
+📈 Evaluation
+
+- Accuracy (classification performance)
+- Loss (training and validation error)
+- Optimizer comparison
+- Generalization performance
+
+🎯 Goal
+
+Learn how models actually learn by:
+
+Gradients → Optimization → Parameter Updates → Convergence → Performance
+
+This lecture builds the foundation for:
+
+- Advanced Deep Learning
+- Model Tuning
+- Training Optimization
+- Research-Level ML Experiments
