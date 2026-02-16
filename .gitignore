@@ -207,8 +207,4 @@ marimo/_lsp/
 __marimo__/
 
 
-/data/
-
-### L6 assignment output ###
-L6/output/
-L6/data
+Code_alongs/data/
