@@ -1,4 +1,4 @@
-📘 Lecture 3 – Introduction to ML Frameworks
+# 📘 Lecture 3 – Introduction to ML Frameworks
 
 In this lecture, I explored the basic mathematical and computational foundations behind modern machine learning frameworks, focusing on NumPy, PyTorch, and Scikit-Learn.
 
@@ -132,7 +132,7 @@ Learn the unsupervised ML workflow:
 
 -------------------------------------------------------------
 
-📘 Lecture 6 – Introduction to Deep Learning
+# 📘 Lecture 6 – Introduction to Deep Learning
 
 In this lecture, I practiced building and training a simple neural network using PyTorch and the MNIST dataset.
 
@@ -178,7 +178,7 @@ Load → Preprocess → Build → Train → Predict → Evaluate → Visualize
 
 -------------------------------------------------------------
 
-📘 Lecture 7 – Automatic Differentiation & Optimization
+# 📘 Lecture 7 – Automatic Differentiation & Optimization
 
 In this lecture, I explored how modern deep learning frameworks compute gradients automatically and how different optimizers affect model training.
 
@@ -244,3 +244,77 @@ This lecture builds the foundation for:
 - Model Tuning
 - Training Optimization
 - Research-Level ML Experiments
+
+-------------------------------------------------------------
+
+# 📘 Lecture 8 – Pipelines & Automated Training
+
+In this lecture, I practiced structuring machine learning workflows using **pipelines** and automating experiments with configurable training functions.
+
+The focus was on combining preprocessing, modeling, and evaluation into reusable and reproducible workflows.
+
+## ✅ What I Learned
+
+- Building pipelines with Scikit-Learn
+- Combining preprocessing and models in one workflow
+- Using `StandardScaler` inside pipelines
+- Training and evaluating models through pipelines
+- Creating reusable experiment functions
+- Automating training with configuration dictionaries
+- Running multiple experiments efficiently
+- Saving model metrics in JSON format
+- Comparing different model configurations
+
+## 🧠 Key Concepts
+
+- Machine Learning pipelines
+- End-to-end workflows
+- Reproducibility
+- Experiment automation
+- Modular ML design
+- Configuration-driven training
+- Separation of preprocessing and modeling
+
+## 📊 Models
+
+### Classification
+
+- Logistic Regression
+- Support Vector Machine (SVM)
+
+Used for classification on the Iris dataset with standardized features.
+
+## 📈 Evaluation
+
+### Classification Metrics
+
+- Accuracy
+- F1-score (Macro Average)
+
+### Experiment Tracking
+
+- Saved metrics (`metrics_*.json`)
+- Model parameters
+- Performance comparison
+
+## ⚙️ Technical Topics
+
+- `Pipeline` from Scikit-Learn
+- `StandardScaler`
+- Custom experiment functions
+- Config dictionaries
+- JSON logging
+- Model serialization (`joblib`)
+
+## 🎯 Goal
+
+Learn how to build scalable ML workflows:
+
+**Preprocess → Pipeline → Train → Evaluate → Log → Compare**
+
+This lecture prepares for:
+
+- MLOps practices
+- Experiment tracking
+- Model reproducibility
+- Production-style ML pipelines
