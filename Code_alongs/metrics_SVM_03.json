@@ -1,0 +1,7 @@
+{
+  "accuracy": 0.9777777777777777,
+  "params": {
+    "model__C": 1,
+    "model__kernel": "linear"
+  }
+}
