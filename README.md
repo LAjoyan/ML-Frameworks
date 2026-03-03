@@ -318,3 +318,87 @@ This lecture prepares for:
 - Experiment tracking
 - Model reproducibility
 - Production-style ML pipelines
+
+# 📘 Lecture 9 – Simplified Processes (Lightning & fastai)
+
+In this lecture, I practiced reducing boilerplate code in deep learning workflows by refactoring a standard PyTorch training loop into higher-level frameworks like PyTorch Lightning.
+
+The focus was on moving away from manual loop management to improve code readability, reproducibility, and scalability.
+
+## ✅ What I Learned
+
+* **Building a baseline model:** Created a standard deep learning model and training loop in pure PyTorch.
+
+
+* **Manual Device Management**: Handled device placement (`CPU` vs. `GPU`/`MPS`) manually for both the model and data.
+
+
+* **Refactoring to Lightning:** Converted standard PyTorch code into an organized `LightningModule`.
+
+
+* **Automated Training:** Used the Lightning `Trainer` to automate the training process and eliminate manual loops.
+
+
+* **Code Organization**: Centralized model logic, loss functions, and optimizers into a single class.
+
+
+* **Automated Backpropagation:** Handled batch iteration and gradients without writing manual `loss.backward()` or `optimizer.step()` calls.
+
+
+* **Metric Logging:** Automated the logging of training metrics like loss and accuracy.
+
+
+* **Readability Comparison**: Compared the boilerplate of "vanilla" PyTorch against the cleaner Lightning implementation.
+
+## 🧠 Key Concepts
+* **Boilerplate Reduction**: Eliminating repetitive code for training steps and hardware management.
+
+* **LightningModule**: A structured way to organize PyTorch code into specific hooks like `training_step`.
+
+* **The Trainer:** A high-level interface that handles training loops, validation, and hardware acceleration automatically.
+
+* **State Management**: Automating hardware-specific calls like `model.train()`, `model.eval()`, and `optimizer.zero_grad()`.
+
+* **Device Agnosticism:** Writing code that runs on any hardware (CUDA, MPS, CPU) without manual `.to(device)` calls.
+
+## 📊 Models
+
+### Multi-Layer Perceptron (MLP)
+
+* **Architecture**: 3 Layers ($4$ input nodes $\to$ $128$ hidden nodes $\to$ $3$ output nodes).
+* **Activation:** ReLU.
+* **Optimization:** Adam Optimizer ($lr=0.01$).
+* **Loss Function:** Cross-Entropy Loss for multi-class classification.
+
+## 📈 Evaluation
+
+### Baseline vs. Lightning
+* **Dataset:** Iris Dataset (Standardized features).
+
+* **Metrics**: Accuracy tracking across epochs.
+
+* **Performance**: Achievement of approximately **86.67% accuracy** on the test set.
+
+## ⚙️ Technical Topics
+* `nn.Sequential` for model definition.
+
+* `TensorDataset` & `DataLoader` for data handling.
+
+* `pl.LightningModule & `pl.Trainer`.
+
+* `training_step and `configure_optimizers`.
+
+* **Hardware detection logic for `cuda`, `mps`, and `cpu`.
+
+## 🎯 Goal
+Learn how to transition from low-level manual loops to professional-grade frameworks:
+
+**Standard PyTorch** → **Refactor to Lightning** → **Automate Loop** → **Scale Hardware**
+
+This lecture prepares for:
+
+* Large-scale Deep Learning projects.
+
+* Professional MLOps workflows.
+
+* Collaborative AI research with standardized code structures.
