@@ -399,6 +399,128 @@ This lecture prepares for:
 
 * Large-scale Deep Learning projects.
 
-* Professional MLOps workflows.
+* Professional MLOps workflows.'
 
 * Collaborative AI research with standardized code structures.
+
+# 📘 Lecture 10 – Optimization & Fine-Tuning
+
+In this lecture, I worked with transfer learning and fine-tuning pretrained models using PyTorch and Torchvision.
+
+The focus was on using a pretrained ResNet model, modifying its classifier head, and comparing frozen vs fine-tuned training strategies.
+
+---
+
+## ✅ What I Learned
+
+- How transfer learning works
+- Loading pretrained models from Torchvision
+- Using pretrained ResNet18 with ImageNet weights
+- Replacing the classifier head (`fc` layer)
+- Freezing base layers during training
+- Training only selected parameters
+- Moving models to GPU / MPS / CPU dynamically
+- Using CIFAR-10 dataset
+- Measuring performance differences between frozen and fine-tuned models
+
+---
+
+## 🧠 Key Concepts
+
+- Transfer Learning
+- Fine-tuning
+- Pretrained models
+- Feature extraction
+- Freezing layers
+- Model optimization
+- GPU acceleration
+- Data pipelines in PyTorch
+
+---
+
+## 🏗 Model Architecture
+
+### Base Model
+
+ResNet18 (pretrained on ImageNet)
+
+### Modifications
+
+Replaced final fully connected layer:
+
+```python
+num_feats = model.fc.in_features
+model.fc = Linear(num_feats, 10)
+```
+
+Adapted for 10 classes (CIFAR-10)
+
+---
+
+## 📊 Dataset
+
+### CIFAR-10
+
+- 10 image classes
+- Loaded using `torchvision.datasets.CIFAR10`
+- Transformed using:
+  - `ToTensor()`
+
+### DataLoaders
+
+- Batch size: 32
+- Shuffling enabled for training data
+
+---
+
+## ⚙️ Training Setup
+
+### Optimizer
+
+- Adam
+- Learning rate: 0.001
+
+### Loss Function
+
+- CrossEntropyLoss
+
+### Training Loop
+
+- Forward pass
+- Loss computation
+- Backpropagation
+- Optimizer step
+- Device-aware training (`cuda`, `mps`, or `cpu`)
+
+---
+
+## 🔄 Frozen vs Fine-Tuned
+
+### Frozen Model (Feature Extraction)
+
+- Base layers frozen
+- Only classifier head trained
+- Faster training
+- Fewer trainable parameters
+
+### Fine-Tuned Model
+
+- Entire network trained
+- Higher computational cost
+- Potentially better performance
+
+---
+
+## 📈 Evaluation
+
+- Measured classification accuracy
+- Compared frozen vs fine-tuned performance
+- Observed performance improvements from fine-tuning
+
+---
+
+## 🎯 Goal
+
+Understand how to reuse powerful pretrained models instead of training from scratch:
+
+Load Pretrained Model → Replace Head → Freeze / Fine-Tune → Train → Evaluate → Compare
