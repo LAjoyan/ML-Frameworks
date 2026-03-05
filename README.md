@@ -403,124 +403,114 @@ This lecture prepares for:
 
 * Collaborative AI research with standardized code structures.
 
-# 📘 Lecture 10 – Optimization & Fine-Tuning
+# 📘 Lecture 10 – Optimization and Fine-Tuning
 
-In this lecture, I worked with transfer learning and fine-tuning pretrained models using PyTorch and Torchvision.
+In this lecture, I practiced advanced deep learning workflows focusing on **Transfer Learning** and **Fine-Tuning**.
 
-The focus was on using a pretrained ResNet model, modifying its classifier head, and comparing frozen vs fine-tuned training strategies.
+The goal was to take a pre-trained **ResNet18** model, adapt it for **CIFAR-10 classification**, and optimize it for production using **ONNX**.
 
----
-
-## ✅ What I Learned
-
-- How transfer learning works
-- Loading pretrained models from Torchvision
-- Using pretrained ResNet18 with ImageNet weights
-- Replacing the classifier head (`fc` layer)
-- Freezing base layers during training
-- Training only selected parameters
-- Moving models to GPU / MPS / CPU dynamically
-- Using CIFAR-10 dataset
-- Measuring performance differences between frozen and fine-tuned models
+The focus was on moving from manual model building to leveraging industry-standard architectures and cross-platform export formats.
 
 ---
 
-## 🧠 Key Concepts
+# ✅ What I Learned
 
-- Transfer Learning
-- Fine-tuning
-- Pretrained models
-- Feature extraction
-- Freezing layers
-- Model optimization
-- GPU acceleration
-- Data pipelines in PyTorch
+## Building a Baseline Model
+- Loaded a pre-trained `resnet18` model using `torchvision.models` with ImageNet weights.
 
----
+## Manual Device Management
+- Handled device placement manually (CPU vs. GPU/MPS) for both the model and the data.
 
-## 🏗 Model Architecture
+## Transfer Learning
+- Replaced the final fully connected (FC) layer of ResNet18 to match the 10 classes of the CIFAR-10 dataset.
 
-### Base Model
+## Layer Freezing
+- Implemented manual freezing of base layers by setting:
+  requires_grad = False
+  to preserve pre-trained features.
 
-ResNet18 (pretrained on ImageNet)
+## Selective Fine-Tuning
+- Unfroze specific parts of the base model (specifically `layer4`) to adapt deeper features to the new dataset.
 
-### Modifications
+## Optimizer Filtering
+- Configured the Adam optimizer to update only parameters where:
+  requires_grad = True
 
-Replaced final fully connected layer:
+## Model Exportation
+- Successfully exported the trained model to:
+  - `.pt` (PyTorch `state_dict`)
+  - `.onnx` (for deployment)
 
-```python
-num_feats = model.fc.in_features
-model.fc = Linear(num_feats, 10)
-```
-
-Adapted for 10 classes (CIFAR-10)
-
----
-
-## 📊 Dataset
-
-### CIFAR-10
-
-- 10 image classes
-- Loaded using `torchvision.datasets.CIFAR10`
-- Transformed using:
-  - `ToTensor()`
-
-### DataLoaders
-
-- Batch size: 32
-- Shuffling enabled for training data
+## Performance Analysis
+- Compared the accuracy of a frozen-base model against a fine-tuned version to measure optimization gains.
 
 ---
 
-## ⚙️ Training Setup
+# 🧠 Key Concepts
 
-### Optimizer
+## Boilerplate Reduction
+Using high-level model loading and automated export functions to reduce manual architecture definitions.
 
-- Adam
-- Learning rate: 0.001
+## Transfer Learning
+Adapting a model trained on a large dataset (ImageNet) to a smaller, specific task (CIFAR-10).
 
-### Loss Function
+## Fine-Tuning
+Re-training a portion of a pre-trained model with a low learning rate to improve domain-specific performance.
 
-- CrossEntropyLoss
-
-### Training Loop
-
-- Forward pass
-- Loss computation
-- Backpropagation
-- Optimizer step
-- Device-aware training (`cuda`, `mps`, or `cpu`)
+## ONNX (Open Neural Network Exchange)
+Exporting models with `dynamic_axes` to ensure hardware and framework agnosticism during inference.
 
 ---
 
-## 🔄 Frozen vs Fine-Tuned
+# 📊 Models
 
-### Frozen Model (Feature Extraction)
+## ResNet18 (Modified)
 
-- Base layers frozen
-- Only classifier head trained
-- Faster training
-- Fewer trainable parameters
-
-### Fine-Tuned Model
-
-- Entire network trained
-- Higher computational cost
-- Potentially better performance
+- **Architecture:** Pre-trained ResNet18 with a modified final `Linear` layer  
+  `512 input nodes → 10 output nodes`
+- **Activation:** ReLU (internal to ResNet)
+- **Optimizer:** Adam (`lr = 0.0005` for fine-tuning)
+- **Loss Function:** Cross-Entropy Loss (multi-class classification)
 
 ---
 
-## 📈 Evaluation
+# 📈 Evaluation
 
-- Measured classification accuracy
-- Compared frozen vs fine-tuned performance
-- Observed performance improvements from fine-tuning
+## Task 1: Transfer Learning (Frozen Base)
+
+- **Dataset:** CIFAR-10 (normalized and transformed)
+- **Performance:** ~42% accuracy on the test set
 
 ---
 
-## 🎯 Goal
+## Task 2: Fine-Tuning (Unfrozen Layer 4)
 
-Understand how to reuse powerful pretrained models instead of training from scratch:
+- **Method:** Unfroze `layer4` and re-trained for 1 epoch
+- **Performance:** ~67% accuracy on the test set
 
-Load Pretrained Model → Replace Head → Freeze / Fine-Tune → Train → Evaluate → Compare
+---
+
+# ⚙️ Technical Topics
+
+- `torchvision.models.resnet18` for model definition
+- `torch.utils.data.DataLoader` with `batch_size = 32`
+- `torch.onnx.export` with `dynamic_axes`
+- `nbdime` for clean Jupyter Notebook version control
+- Hardware detection logic for:
+  - `cuda`
+  - `mps`
+  - `cpu`
+
+---
+
+# 🎯 Goal
+
+Learn how to transition from building models from scratch to optimizing and deploying professional-grade architectures:
+
+Standard PyTorch → Transfer Learning → Fine-Tuning → ONNX Deployment
+
+This lecture prepares for:
+
+- Efficient use of pre-trained models
+- Optimizing model performance for specific datasets
+- MLOps workflows and cross-platform model deployment
