@@ -210,3 +210,7 @@ __marimo__/
 Code_alongs/data/
 /data
 *.joblib
+
+*.pt 
+*.onnx
+*.onnx.data
