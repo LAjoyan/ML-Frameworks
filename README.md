@@ -134,47 +134,89 @@ Learn the unsupervised ML workflow:
 
 # 📘 Lecture 6 – Introduction to Deep Learning
 
-In this lecture, I practiced building and training a simple neural network using PyTorch and the MNIST dataset.
+In this lecture, I practiced building and training a simple neural network using PyTorch and the MNIST dataset. I also created dedicated reference guides to master tensor manipulation and cross-framework syntax.
 
-✅ What I Learned
+The focus was on understanding the fundamental building blocks of deep learning, from raw tensors to fully trained classification models.
 
-- Working with tensors in PyTorch
-- Loading and preprocessing the MNIST dataset
-- Creating a custom neural network
-- Using forward propagation
-- Training with backpropagation and optimizers
-- Using loss functions for classification
-- Running training loops with epochs
-- Evaluating model performance
-- Visualizing predictions and errors
+## 📂 Reference Guides Added
+* **[Tensors 101](./Tensors%20101.md):** A practical deep dive into tensor creation, reshaping, broadcasting, and the mechanics of **Autograd**.
+* **[PyTorch vs. Keras Syntax](./Pytorch_vs_Keras_Syntax.md):** A side-by-side comparison of model definitions, training loops, and evaluation patterns between PyTorch and Keras/TensorFlow.
 
-📊 Model
+## ✅ What I Learned
 
-Neural Network (Fully Connected)
+* **Tensor Foundations:** Mastered `shapes`, `dtypes`, and `broadcasting` logic in PyTorch.
 
-- Input: 28 × 28 images (flattened)
-- Hidden layers with ReLU activation
-- Output: 10 classes (digits 0–9)
-- Softmax classification
 
-📈 Evaluation
+* **Working with Tensors:** Practiced creating tensors from random generators, Python lists, and NumPy arrays.
 
-Classification Metrics
 
-- Accuracy
-- Loss (training and validation)
-- Confusion Matrix
+* **MNIST Workflow:** Loading and preprocessing the MNIST dataset (28x28 grayscale images) for digit classification.
 
-Visual Analysis
 
-- Sample predictions (correct and wrong)
-- Training and validation loss curves
+* **Custom Architectures:** Building a multi-layer neural network using `nn.Module` and `nn.Sequential`.
 
-🎯 Goal
 
-Learn the basic deep learning workflow:
+* **The Training Loop:** Implementing manual backpropagation using `optimizer.zero_grad()`, `loss.backward()`, and `optimizer.step()`.
 
-Load → Preprocess → Build → Train → Predict → Evaluate → Visualize
+
+* **Autograd Mechanics:** Understanding how `requires_grad=True` allows PyTorch to automatically track and calculate gradients.
+
+
+* **Evaluation Techniques:** Using `model.eval()` and `torch.no_grad()` to freeze weights during the testing phase.
+
+
+* **Visualization:** Plotting training curves and confusion matrices to analyze where the model makes mistakes.
+
+## 🧠 Key Concepts
+* **Flattening:** Converting 2D image data ($28 \times 28$) into a 1D vector ($784$) for input into a Fully Connected layer.
+
+* **Activation Functions:** Using ReLU to introduce non-linearity and Softmax for final probability distributions.
+
+* **Loss Functions:** Applying Cross-Entropy Loss for multi-class classification problems.
+
+* **Gradient Descent:** Using optimizers like SGD or Adam to update weights based on calculated errors.
+
+## 📊 Models
+
+### Fully Connected Neural Network (MLP)
+
+* **Architecture**: Input Layer ($784$) $\to$ Hidden Layers (ReLU) $\to$ Output Layer ($10$ classes).
+* **Activation:** ReLU for hidden layers, Softmax/Log-Softmax for output.
+* **Optimization:** Adam or SGD Optimizer.
+* **Loss Function:** Cross-Entropy Loss.
+
+## 📈 Evaluation
+
+### Classification Metrics
+* **Dataset:** MNIST Handwritten Digits.
+
+* **Performance**: Tracking accuracy and loss across multiple epochs.
+
+* **Visuals**: Confusion matrices and sample predictions (Correct vs. Incorrect).
+
+## ⚙️ Technical Topics
+* `torch.tensor` & `torch.autograd`.
+
+* `torchvision.datasets.MNIST`.
+
+* `nn.Linear` & `nn.ReLU`.
+
+* `torch.optim` (Adam/SGD).
+
+* **Hardware detection logic for `cuda`, `mps`, and `cpu`.
+
+## 🎯 Goal
+Master the fundamental deep learning workflow and establish a "syntax bridge" between major frameworks:
+
+**Tensors** → **Preprocess** → **Build** → **Train** → **Evaluate** → **Cross-Framework Syntax**
+
+This lecture prepares for:
+
+* Building custom architectures for computer vision.
+
+* Understanding the "under the hood" mechanics of backpropagation.
+
+* Transitioning between different deep learning libraries like Keras and PyTorch.
 
 -------------------------------------------------------------
 
