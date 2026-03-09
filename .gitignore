@@ -214,3 +214,6 @@ Code_alongs/data/
 *.pt 
 *.onnx
 *.onnx.data
+
+*.tar.gz
+**/data/
