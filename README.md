@@ -514,6 +514,10 @@ This lecture prepares for:
 - Model reproducibility
 - Production-style ML pipelines
 
+**You can find MLOps Lifecycle Guide** [here](./Code_alongs/Lecture-08/MLOps_Lifecycle.md)
+
+**You can view the Pipeline Components Diagram** [here](./Code_alongs/Lecture-08/pipeline_components_diagram.md)
+
 # 📘 Lecture 9 – Simplified Processes (Lightning & fastai)
 
 In this lecture, I practiced reducing boilerplate code in deep learning workflows by refactoring a standard PyTorch training loop into higher-level frameworks like PyTorch Lightning.
