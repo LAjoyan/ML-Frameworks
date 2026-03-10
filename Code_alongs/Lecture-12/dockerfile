@@ -1,0 +1,23 @@
+# Example Dockerfile for a FastAPI app that serves an ML model
+
+# First we define what environment we want to run our code in
+# A Python version is reasonable
+FROM python:3.11-slim 
+
+# We set where on the computer we want to work
+WORKDIR /app
+
+# We copy the material where we are to the workspace on the
+# virtual computer
+COPY . /app
+
+# We install the programs we need
+# OFTEN: from requirements.txt
+# Possibly using uv?
+RUN pip install --no-cache-dir fastapi uvicorn joblib scikit-learn numpy
+
+# Exposes a port
+EXPOSE 8000
+
+# What should actually be executed when the container runs
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
