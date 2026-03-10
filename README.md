@@ -218,6 +218,99 @@ This lecture prepares for:
 
 * Transitioning between different deep learning libraries like Keras and PyTorch.
 
+## 1. Tensors 101
+A practical introduction to tensors, the fundamental building blocks of deep learning.
+
+### Goals
+* Create tensors from Python data and random generators.
+* Inspect shapes and data types (`dtypes`).
+* Perform basic operations and understand **broadcasting**.
+* Understand how gradients attach to tensors for backpropagation.
+
+### Core Operations
+```python
+import torch
+torch.manual_seed(0)
+
+# Creation
+a = torch.tensor([1.0, 2.0, 3.0])
+b = torch.zeros((2, 3))
+c = torch.randn((2, 3))
+
+# Shapes, Indexing, and Reshaping
+x = torch.arange(12).reshape(3, 4)
+# Example: x[0] (first row), x[:, 1] (second column)
+
+# Operations and Broadcasting
+v = torch.tensor([1.0, 2.0, 3.0])
+m = torch.ones((2, 3))
+result = m + v # v is broadcasted to match m's shape
+```
+
+### Autograd Basics
+
+Tensors can track gradients when `requires_grad=True`, enabling automatic differentiation.
+
+```python
+w = torch.tensor([2.0, -1.0], requires_grad=True)
+y = (w ** 2).sum()
+y.backward()
+print(w.grad) # Access the computed gradients
+```
+
+## 2. PyTorch vs. Keras Syntax Guide
+
+A quick reference for switching between the two most popular deep learning libraries.
+
+**Tensor Creation**
+
+| Feature   | PyTorch                | Keras / TensorFlow      |
+|-----------|-----------------------|------------------------|
+| Constant  | `torch.tensor([[1, 2]])` | `tf.constant([[1, 2]])` |
+| Zeros     | `torch.zeros((2, 3))`    | `tf.zeros((2, 3))`      |
+
+### Model Definition
+
+## PyTorch (Class-based)
+
+```python
+import torch.nn as nn
+
+class MLP(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(10, 32),
+            nn.ReLU(),
+            nn.Linear(32, 1),
+        )
+
+    def forward(self, x):
+        return self.net(x)
+```
+
+### Keras (Sequential API)
+
+```python
+from tensorflow import keras
+
+model = keras.Sequential([
+    keras.layers.Dense(32, activation="relu", input_shape=(10,)),
+    keras.layers.Dense(1),
+])
+```
+## Training & Evaluation
+
+| Action | PyTorch (Manual Loop) | Keras (High-level) |
+|--------|----------------------|-------------------|
+| Setup  | Define Optimizer & Loss function | `model.compile(opt, loss)` |
+| Train  | `loss.backward() + optimizer.step()` | `model.fit(dataset, epochs=5)` |
+| Eval   | `model.eval() + torch.no_grad()` | `model.evaluate(x_test, y_test)` |
+
+### Saving Models
+* PyTorch: `torch.save(model.state_dict(), "model.pt")`
+
+* Keras: `model.save("model.keras")`
 -------------------------------------------------------------
 
 # 📘 Lecture 7 – Automatic Differentiation & Optimization
