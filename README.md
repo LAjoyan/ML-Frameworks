@@ -380,6 +380,64 @@ This lecture builds the foundation for:
 - Training Optimization
 - Research-Level ML Experiments
 
+# 🔍 Deep Dive: Chain Rule & Optimization
+
+---
+
+## 1. Chain Rule Walkthrough (Code vs. Math)
+
+I compared manual calculus with PyTorch's autograd to verify how gradients flow through a computational graph.
+
+### Example Graph
+
+[u = x \cdot y]  
+[v = u + x]  
+[z = v^2]  
+
+### Python Implementation
+
+```python
+import torch
+
+# Define variables with gradient tracking
+x = torch.tensor(2.0, requires_grad=True)
+y = torch.tensor(3.0, requires_grad=True)
+
+# Forward pass
+u = x * y
+v = u + x
+z = v ** 2
+
+# Backward pass
+z.backward()
+
+print(f"PyTorch Gradients: dz/dx = {x.grad}, dz/dy = {y.grad}")
+``` 
+
+## 2. Optimizer Path Visualization
+
+I implemented a visualization tool to track how different algorithms navigate a non-convex loss surface with multiple valleys.
+
+### Optimizers Compared
+
+- **SGD:** Pure gradient descent; can be slow or get stuck in local minima.  
+- **Momentum:** Adds a "velocity" component to accelerate through flat regions and dampen oscillations.  
+- **Adam:** Combines adaptive learning rates with momentum for robust convergence.  
+
+### Visualization Concept
+
+- Plot the 2D loss surface: \(L(x, y)\)  
+- Show paths taken by different optimizers from the same starting point  
+- Analyze convergence speed and stability
+
+---
+
+## 3. Updated Technical Topics
+
+- **Computational Graphs:** Track dependencies between variables to automate backpropagation.  
+- **Manual vs. Auto Grad:** Validate \(\frac{\partial z}{\partial x}\) and \(\frac{\partial z}{\partial y}\) using the chain rule.  
+- **Loss Surfaces:** Visualize 2D non-convex functions to test optimizer stability.
+
 -------------------------------------------------------------
 
 # 📘 Lecture 8 – Pipelines & Automated Training
