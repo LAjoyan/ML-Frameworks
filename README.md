@@ -1,3 +1,5 @@
+**You can find instructions about dvc** [here](./Code_alongs/Lecture-07/dvc_quick_guide.md)
+
 # 📘 Lecture 3 – Introduction to ML Frameworks
 
 In this lecture, I explored the basic mathematical and computational foundations behind modern machine learning frameworks, focusing on NumPy, PyTorch, and Scikit-Learn.
