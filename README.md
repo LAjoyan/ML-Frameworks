@@ -781,3 +781,53 @@ This lecture prepares for:
 - Ensuring reproducible results across different hardware and frameworks.
 
 -------------------------------------------------------------
+
+# 📘 Lecture 12 – Docker & Containerization
+
+In this lecture, I explored how to containerize machine learning applications to ensure they run consistently across different environments. I moved from running scripts locally to orchestrating a multi-service stack using **Docker** and **Docker Compose**.
+
+## ✅ What I Learned
+
+- **Writing Dockerfiles:** Creating custom images using `python:3.11-slim` and `nginx:alpine` as base layers.
+- **Image Layering:** Understanding how `COPY`, `RUN`, and `WORKDIR` commands build up an immutable environment.
+- **Service Orchestration:** Using Docker Compose to manage a three-component stack (**Frontend**, **Backend**, **Database**).
+- **Network & Port Mapping:** Mapping internal container ports (e.g., 80, 8000) to host-accessible ports (e.g., 3000, 8000).
+- **Environment Management:** Passing sensitive data and configuration like `DATABASE_URL` via environment variables.
+- **Dependency Management:** Implementing `depends_on` and `healthcheck` to ensure the database is ready before the backend starts.
+- **Persistent Storage:** Using Docker `volumes` to ensure PostgreSQL data persists even when containers are destroyed.
+
+## 🧠 Key Concepts
+
+- **Containerization:** Packaging code, runtime, and libraries into a single unit to solve the "it works on my machine" problem.
+- **Microservices Architecture:** Separating the frontend (UI), backend (API/Logic), and database into independent, communicating services.
+- **Infrastructure as Code (IaC):** Defining the entire infrastructure (networks, volumes, services) in a `docker-compose.yml` file.
+- **Healthchecks:** Automating the monitoring of service readiness to prevent application crashes during startup.
+
+## 📊 Services Stack
+
+| Service | Technology | Role |
+| :--- | :--- | :--- |
+| **db** | PostgreSQL 15 | Persistent storage for application data. |
+| **backend** | FastAPI (Python) | Serving the ML model and handling logic. |
+| **frontend** | Nginx (HTML/CSS) | Simple user interface to interact with the API. |
+
+## ⚙️ Technical Topics
+
+- `FROM`, `COPY`, `RUN`, `CMD` (Dockerfile instructions)
+- `docker compose up --build`
+- `pg_isready` for database health monitoring
+- Nginx static file serving
+- Cross-container networking via service names
+
+## 🎯 Goal
+
+Transition from standalone scripts to a production-ready microservices environment:
+
+**Script → Dockerfile → Image → Multi-container Stack → Orchestration**
+
+This lecture prepares for:
+- Deploying ML models to the cloud (AWS/Azure/GCP).
+- Building scalable, multi-user web applications.
+- Standardizing development environments for team collaboration.
+
+-------------------------------------------------------------
