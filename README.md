@@ -614,49 +614,49 @@ The focus was on moving from manual model building to leveraging industry-standa
 
 # ✅ What I Learned
 
-## Building a Baseline Model
+### Building a Baseline Model
 - Loaded a pre-trained `resnet18` model using `torchvision.models` with ImageNet weights.
 
-## Manual Device Management
+### Manual Device Management
 - Handled device placement manually (CPU vs. GPU/MPS) for both the model and the data.
 
-## Transfer Learning
+### Transfer Learning
 - Replaced the final fully connected (FC) layer of ResNet18 to match the 10 classes of the CIFAR-10 dataset.
 
-## Layer Freezing
+### Layer Freezing
 - Implemented manual freezing of base layers by setting:
   requires_grad = False
   to preserve pre-trained features.
 
-## Selective Fine-Tuning
+### Selective Fine-Tuning
 - Unfroze specific parts of the base model (specifically `layer4`) to adapt deeper features to the new dataset.
 
-## Optimizer Filtering
+### Optimizer Filtering
 - Configured the Adam optimizer to update only parameters where:
   requires_grad = True
 
-## Model Exportation
+### Model Exportation
 - Successfully exported the trained model to:
   - `.pt` (PyTorch `state_dict`)
   - `.onnx` (for deployment)
 
-## Performance Analysis
+### Performance Analysis
 - Compared the accuracy of a frozen-base model against a fine-tuned version to measure optimization gains.
 
 ---
 
 # 🧠 Key Concepts
 
-## Boilerplate Reduction
+### Boilerplate Reduction
 Using high-level model loading and automated export functions to reduce manual architecture definitions.
 
-## Transfer Learning
+### Transfer Learning
 Adapting a model trained on a large dataset (ImageNet) to a smaller, specific task (CIFAR-10).
 
-## Fine-Tuning
+### Fine-Tuning
 Re-training a portion of a pre-trained model with a low learning rate to improve domain-specific performance.
 
-## ONNX (Open Neural Network Exchange)
+### ONNX (Open Neural Network Exchange)
 Exporting models with `dynamic_axes` to ensure hardware and framework agnosticism during inference.
 
 ---
