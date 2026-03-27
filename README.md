@@ -1,3 +1,18 @@
+# 🤖 Machine Learning Frameworks: From Math to MLOps
+
+This repository is a comprehensive technical log of my journey through 13 intensive lectures on modern Machine Learning. It covers the full lifecycle of an AI project—starting from raw linear algebra and tensor manipulation, moving through deep learning architectures, and concluding with model deployment, containerization, and AI ethics.
+
+### 🛠️ Core Tech Stack
+* **Frameworks:** PyTorch, PyTorch Lightning, Scikit-Learn, JAX, FastAPI
+* **DevOps/MLOps:** Docker, Docker Compose, ONNX, DVC
+* **Environment:** Python 3.11+, UV/Pip
+
+### 📂 Repository Structure
+* **`Code_alongs/`**: Detailed Jupyter Notebooks and scripts for each lecture.
+* **`data/`**: Managed datasets (via DVC where applicable).
+* **`README.md`**: Chronological summary of learning milestones and technical topics.
+
+-------------------------------------------------------------
 **You can find instructions about dvc** [here](./Code_alongs/Lecture-07/dvc_quick_guide.md)
 
 # 📘 Lecture 3 – Introduction to ML Frameworks
