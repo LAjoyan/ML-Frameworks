@@ -713,3 +713,71 @@ This lecture prepares for:
 - Efficient use of pre-trained models
 - Optimizing model performance for specific datasets
 - MLOps workflows and cross-platform model deployment
+
+# 📘 Lecture 11 – Model Integration
+
+In this lecture, I practiced the end-to-end process of model persistence and cross-platform compatibility. The focus was on serializing a trained model, exporting it to the industry-standard **ONNX** format, and verifying that predictions remain consistent across different runtime environments.
+
+---
+
+## ✅ What I Learned
+
+- **Model Serialization:** Using `torch.save` and `torch.load` to persist model weights via `state_dict`.
+- **Environment Agnostic Loading:** Mapping models to specific hardware (e.g., `map_location="cpu"`) during the loading process.
+- **ONNX Inference:** Running models outside of PyTorch using the `onnxruntime` engine.
+- **Verification Workflows:** Comparing raw PyTorch output shapes and values against ONNX runtime outputs to ensure parity.
+- **Dynamic Input Handling:** Managing data transformations (normalization and tensor conversion) to match the expected input of a serialized model.
+- **Sanity Checking:** Using random noise tensors (`torch.randn`) to verify model architecture integrity post-loading.
+
+---
+
+## 🧠 Key Concepts
+
+- **Weights Persistence:** Understanding that `state_dict` only saves parameters, requiring the model architecture to be redefined before loading.
+- **Serialization vs. Export:** Distinguishing between PyTorch-specific saving (`.pt`) and framework-interchangeable formats (`.onnx`).
+- **Inference Sessions:** How `InferenceSession` optimizes the computational graph for faster execution during production.
+- **Input/Output Mapping:** Correctly identifying input layer names (e.g., `_sess.get_inputs()[0].name`) when passing data to an ONNX runtime.
+
+---
+
+## 📊 Models
+
+### ResNet18 (Integrated)
+- **Source:** Pre-trained weights (adapted from Lecture 10).
+- **Modification:** Final Fully Connected layer modified for **CIFAR-10** (10 output classes).
+- **Format A:** PyTorch JIT/State Dict (`L11_model.pt`).
+- **Format B:** ONNX Graph (`L11_model.onnx`).
+
+---
+
+## 📈 Evaluation
+
+### Cross-Format Comparison
+- **Dataset:** CIFAR-10 Test Set.
+- **Consistency Check:** Verified that both the `.pt` file and the `.onnx` file produced identical output shapes `(batch_size, 10)`.
+- **Validation:** Implemented a loop to pass real image data through both engines to verify prediction alignment.
+
+---
+
+## ⚙️ Technical Topics
+
+- `pathlib.Path` for robust file system navigation.
+- `torch.load` with `weights_only=True` for secure deserialization.
+- `onnxruntime.InferenceSession` for high-performance deployment.
+- `transforms.Compose` for matching preprocessing pipelines between training and inference.
+- Manual evaluation mode toggle using `model.eval()` and `torch.no_grad()`.
+
+---
+
+## 🎯 Goal
+
+Master the transition from "Training" to "Integration":
+
+**Train/Fine-tune** → **Save State** → **Export to ONNX** → **Verify Consistency** → **Cross-Platform Readiness**
+
+This lecture prepares for:
+- Deploying models in non-Python environments (C++, C#, JavaScript).
+- Standardizing model delivery for MLOps pipelines.
+- Ensuring reproducible results across different hardware and frameworks.
+
+-------------------------------------------------------------
